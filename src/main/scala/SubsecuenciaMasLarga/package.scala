@@ -54,11 +54,16 @@ package object SubsecuenciaMasLarga {
   }
 
   def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
-    val subsecuenciasIncrementales = subSecuenciasInc(s)
+    val subsecInc = subSecuenciasInc(s)
 
-    if (subsecuenciasIncrementales.isEmpty) Seq()
+    if (subsecInc.isEmpty) Seq()
     else {
-      subsecuenciasIncrementales.maxBy(_.length)
+      val maxLongitud = (for (subsec <- subsecInc) yield subsec.length).max
+      
+      (for {
+        subsec <- subsecInc
+        if subsec.length == maxLongitud
+      } yield subsec).head
     }
   }
 
