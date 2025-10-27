@@ -59,7 +59,7 @@ package object SubsecuenciaMasLarga {
     if (subsecInc.isEmpty) Seq()
     else {
       val maxLongitud = (for (subsec <- subsecInc) yield subsec.length).max
-      
+
       (for {
         subsec <- subsecInc
         if subsec.length == maxLongitud

@@ -108,9 +108,6 @@ subsecuenciaIncrementalMasLarga(Seq(1,2,3,4,5))
 // Resultado esperado: List(1) (o cualquier elemento individual)
 subsecuenciaIncrementalMasLarga(Seq(5,4,3,2,1))
 
-subsecuenciaIncrementalMasLarga(Seq())
-
-
 // Caso 4: Secuencia con múltiples subsecuencias largas
 // Resultado esperado: List(1, 10, 20, 30)
 subsecuenciaIncrementalMasLarga(Seq(1,10,2,20,3,30))
