@@ -66,31 +66,29 @@ package object SubsecuenciaMasLarga {
       } yield subsec).head
     }
   }
-
+  
   def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
     if (i >= s.length) Seq()
     else {
       val elementoActual = s(i)
-
-      // Encontrar todas las posibles continuaciones válidas
+      
       val continuaciones = for {
         j <- i + 1 until s.length
         if s(j) > elementoActual
         continuacion = ssimlComenzandoEn(j, s)
       } yield continuacion
-
-      // Encontrar la continuación más larga
-      val mejorContinuacion = if (continuaciones.nonEmpty) {
-        continuaciones.maxBy(_.length)
-      } else {
-        Seq()
+      
+      var mejorContinuacion = Seq[Int]()
+      for (continuacion <- continuaciones) {
+        if (continuacion.length > mejorContinuacion.length) {
+          mejorContinuacion = continuacion
+        }
       }
-
-      // Combinar el elemento actual con la mejor continuación
+      
       elementoActual +: mejorContinuacion
     }
   }
-
+  
   def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
     if (s.isEmpty) Seq()
     else {
@@ -99,7 +97,14 @@ package object SubsecuenciaMasLarga {
         subseq = ssimlComenzandoEn(i, s)
       } yield subseq
 
-      todasComienzos.maxBy(_.length)
+      var masLarga = Seq[Int]()
+      for (subseq <- todasComienzos) {
+        if (subseq.length > masLarga.length) {
+          masLarga = subseq
+        }
+      }
+
+      masLarga
     }
   }
 

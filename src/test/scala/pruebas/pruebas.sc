@@ -109,7 +109,7 @@ subsecuenciaIncrementalMasLarga(Seq(1,2,3,4,5))
 subsecuenciaIncrementalMasLarga(Seq(5,4,3,2,1))
 
 // Caso 4: Secuencia con múltiples subsecuencias largas
-// Resultado esperado: List(1, 10, 20, 30)
+// Resultado esperado: List(1, 2, 3, 30)
 subsecuenciaIncrementalMasLarga(Seq(1,10,2,20,3,30))
 
 // Caso 5: Caso del PDF extendido
