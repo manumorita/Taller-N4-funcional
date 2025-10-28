@@ -103,7 +103,6 @@ package object SubsecuenciaMasLarga {
         subseq <- todasComienzos
         if subseq.length == maxLongitud
       } yield subseq).head
-        
     }
   }
 
