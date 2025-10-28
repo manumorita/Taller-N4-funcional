@@ -88,7 +88,7 @@ package object SubsecuenciaMasLarga {
       elementoActual +: mejorContinuacion
     }
   }
-  
+
   def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
     if (s.isEmpty) Seq()
     else {
@@ -97,14 +97,7 @@ package object SubsecuenciaMasLarga {
         subseq = ssimlComenzandoEn(i, s)
       } yield subseq
 
-      var masLarga = Seq[Int]()
-      for (subseq <- todasComienzos) {
-        if (subseq.length > masLarga.length) {
-          masLarga = subseq
-        }
-      }
-
-      masLarga
+      todasComienzos.maxBy(_.length)
     }
   }
 
