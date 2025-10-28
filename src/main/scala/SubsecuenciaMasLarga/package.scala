@@ -97,12 +97,7 @@ package object SubsecuenciaMasLarga {
         subseq = ssimlComenzandoEn(i, s)
       } yield subseq
 
-      val maxLongitud = (for (subseq <- todasComienzos) yield subseq.length).max
-
-      (for {
-        subseq <- todasComienzos
-        if subseq.length == maxLongitud
-      } yield subseq).head
+      todasComienzos.maxBy(_.length)
     }
   }
 
